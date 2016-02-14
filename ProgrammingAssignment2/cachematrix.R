@@ -5,13 +5,13 @@
 
 ## This function gets and sets an ivertible matrix "mat" and it's inverse "inv_mat", outputting a list of these four operations
 
-makeCacheMatrix <- function(x = matrix()){
+makeCacheMatrix <- function(x1 = matrix()){
         inv_mat <- NULL
         set <- function(y) {
-                x <<- y
+                x1 <<- y
                 inv_mat <<- NULL
         }
-        get <- function() x
+        get <- function() x1
         setinv <- function(inverse){
                 inv_mat <<- inverse
         } 
@@ -32,6 +32,6 @@ cacheSolve <- function(x,...){
         }
         data <- x$get()
         inv <- solve(data, ...)
-        mat_vec$setinv(inv)
+        x$setinv(inv)
         inv
 }
