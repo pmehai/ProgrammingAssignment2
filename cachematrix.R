@@ -24,14 +24,14 @@ makeCacheMatrix <- function(mat = matrix()){
 
 ## This functions takes in the function list creates in the above function and outputs the inverse of the matrix "mat"
 
-cacheSolve <- function(x ,...){
-        inv_mat <- x$getinv()
+cacheSolve <- function(mat_vec,...){
+        inv_mat <- mat_vec$getinv()
         if(!is.null(inv_mat)) {
-                message("getting cached data")
-                return(inv_mat)
+            message("getting cached data")
+            return(inv_mat)
         }
-        data <- x$get()
+        data <- mat_vec$get()
         inv <- solve(data, ...)
-        x$setinv(inv)
+        mat_vec$setinv(inv)
         inv
 }
